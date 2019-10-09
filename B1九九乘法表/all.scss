@@ -1,0 +1,210 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+//variable
+
+$primary:#2eb738;
+$secondary:#f0f0f0;
+
+body {
+  background-color: $secondary;
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+}
+.wrapper {
+  flex: 1;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 350px 350px 350px;
+  grid-template-rows: 366px 366px 366px;
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+  padding: 80px 85px;
+}
+
+.title {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  color: $primary;
+  .title-main{
+    font-size: 56px;
+    font-weight: bold;
+  }
+  .title-sub{
+      font-size: 24px;
+      font-family: "Helvetica Neue";
+  }
+  .title-divider {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    span {
+      display: inline-block;
+      border: 1px solid $primary;
+      width: 280px;
+      height: 0;
+      margin: 0 21px;
+    }
+  }
+}
+
+.box {
+  background-color: #fff;
+  box-shadow: 0px 3px 10px #d8d8d8;
+  border-radius: 100px 0px 30px 0px;
+  box-sizing: border-box;
+  padding: 64px 40px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  h2 {
+    display: inline;
+    font-size: 128px;
+    font-weight: bold;
+    text-shadow: 4px 3px 0px $secondary;
+    color: $primary;
+  }
+  span {
+    font-size: 24px;
+    color: $primary;
+    margin-bottom: 8px;
+  }
+}
+.footer {
+  padding: 8px 85px;
+  color: $secondary;
+  background-color: $primary;
+  text-align: right;
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+}
