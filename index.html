@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>時區</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./stylesheet/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i,800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="title border-left-0 border-right-0 py-2 my-3">
+      <h1>WORLD CLOCK</h1>
+    </div>
+    <div class="timetable">
+      <time-info v-for="item in country" :key="item.city" :prop-data="item"></time-info>
+    </div>
+  </div>
+
+  <script type="text/x-template" id="timeInfo">
+  <div class="d-flex justify-content-between align-items-center px-4 py-3">
+    <div>
+      <h2>{{comData.city}}</h2>
+      <span>{{comData.date}}</span>
+    </div>
+    <div class="time">{{comData.time}}</div>
+  </div>
+</script>
+
+  <script>
+    var timeInfo = {
+      template: '#timeInfo',
+      props: ['propData'],
+      data() {
+        return {
+          comData: this.propData,
+        }
+      },
+    }
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        country: [
+          {
+            city: 'NEW YORK',
+            timeZone: 'America/New_York',
+            time: null,
+            date: null,
+          },
+          {
+            city: 'LONDON',
+            timeZone: 'Europe/London',
+            time: null,
+            date: null,
+          },
+          {
+            city: 'BANGKOK',
+            timeZone: 'Asia/Bangkok',
+            time: null,
+            date: null,
+          },
+          {
+            city: 'TAIWAN',
+            timeZone: 'Asia/Taipei',
+            time: null,
+            date: null,
+          },
+          {
+            city: 'SYDNEY',
+            timeZone: 'Australia/Sydney',
+            time: null,
+            date: null,
+          },
+        ]
+      },
+      components: {
+        'time-info': timeInfo,
+      },
+      created() {
+        this.updateTime();
+      },
+      methods: {
+        getData() {
+          var vm = this;
+          var setting = { day: 'numeric', month: 'short', year: 'numeric', hour12: false, minute: 'numeric', hour: 'numeric' };
+          var data = vm.country.forEach(function (element) {
+            var option = { timeZone: element.timeZone, ...setting };
+            var arr = new Date().toLocaleDateString('en-GB', option).split(" ");
+            var currentDay = arr.slice(0, 3);
+            currentDay.splice(1, 0, " ");
+            currentDay.splice(3, 0, ".");
+            element.date = currentDay.join("").replace(/\,/g, "");
+            element.time = arr.slice(3).join('');
+          })
+        },
+        updateTime() {
+          var vm = this;
+          setInterval(() => vm.getData(), 1000);
+        }
+      },
+
+    })
+  </script>
+
+</body>
+
+</html>

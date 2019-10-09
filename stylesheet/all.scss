@@ -1,0 +1,48 @@
+$gray:#E5E5E5;
+html{
+    height: 100%;
+}
+body{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $gray;
+    font-family: 'Open Sans', sans-serif; 
+}
+.title{
+    box-sizing: border-box;
+    border: 13px solid black;
+    h1{
+        font-size: 72px;
+        font-weight: 800;
+    }
+}
+.timetable{
+    display: flex;
+    flex-direction: column;
+    border:2px solid black;
+    >div{
+        box-sizing: border-box;
+        border-bottom: 2px solid black;
+        height: 104px;
+        background-color: white;
+        &:first-child,&:last-child{
+            background-color: black;
+            color: white;
+        }
+    }
+    h2{
+        font-weight: bold;
+        font-size: 36px;
+    }
+    span{
+        font-weight: bold;
+        font-style: italic;
+    }
+    .time{
+        font-weight: bold;
+        font-size: 72px;
+    }
+}

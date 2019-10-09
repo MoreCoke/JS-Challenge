@@ -1,0 +1,73 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #E5E5E5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 13px solid black;
+}
+
+.title h1 {
+  font-size: 72px;
+  font-weight: 800;
+}
+
+.timetable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 2px solid black;
+}
+
+.timetable > div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-bottom: 2px solid black;
+  height: 104px;
+  background-color: white;
+}
+
+.timetable > div:first-child, .timetable > div:last-child {
+  background-color: black;
+  color: white;
+}
+
+.timetable h2 {
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.timetable span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.timetable .time {
+  font-weight: bold;
+  font-size: 72px;
+}
+/*# sourceMappingURL=all.css.map */
