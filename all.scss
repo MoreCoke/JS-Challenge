@@ -1,0 +1,442 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+//variable
+$primary: #293b29;
+$secondary: #3d5a45;
+$success: #ff7600;
+$info: #b1ff00;
+
+html {
+  height: 100%;
+}
+body {
+  background-color: $primary;
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  width: 350px;
+  height: 350px;
+  background-color: $secondary;
+  border-radius: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock {
+  width: 300px;
+  height: 300px;
+  background-color: $primary;
+  border-radius: 100%;
+  border: 3px solid #212f0b;
+  box-sizing: border-box;
+  position: relative;
+  &-hour {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 72px;
+    border-radius: 4px 4px 0 0;
+    transform: translateX(-50%);
+    transform-origin: top left;
+    background-color: #fff;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      bottom: 5px;
+      width: 2px;
+      height: 25px;
+      background-color: $primary;
+    }
+  }
+  &-minute {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 90px;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    transform-origin: top left;
+    background-color: $success;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 2px;
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+      background: white;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 3px;
+      width: 2px;
+      height: 40px;
+      background: white;
+    }
+  }
+  &-second {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 120px;
+    transform: translateX(-50%);
+    transform-origin: top left;
+  }
+}
+.pointer {
+  position: relative;
+  &-1 {
+    position: absolute;
+    top: 3px;
+    left: 7.5px;
+    width: 2px;
+    height: 50px;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%); //rotate(60deg);
+    transform-origin: top;
+    background: $info;
+  }
+  &-2 {
+    position: absolute;
+    top: 52px;
+    left: 7.5px;
+    width: 2px;
+    height: 10px;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%) rotate(-30deg);
+    transform-origin: top;
+    background: $info;
+  }
+  &-3 {
+    position: absolute;
+    top: 60px;
+    left: 13px;
+    width: 2px;
+    height: 20px;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%) rotate(30deg);
+    transform-origin: top;
+    background: $info;
+  }
+  &-4 {
+    position: absolute;
+    top: 77px;
+    left: 3px;
+    width: 2px;
+    height: 6px;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%) rotate(-45deg);
+    transform-origin: top;
+    background: $info;
+  }
+  &-5 {
+    position: absolute;
+    top: 80px;
+    left: 7px;
+    width: 2px;
+    height: 40px;
+    border-radius: 2px 2px 0 0;
+    transform: translateX(-50%);
+    transform-origin: top;
+    background: $info;
+  }
+  &-6 {
+    position: absolute;
+    top: 120px;
+    left: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    border: 1px solid $info;
+    transform: translateX(-50%);
+    transform-origin: top;
+    background: transparent;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 3px;
+      height: 3px;
+      border-radius: 5px;
+      background: $info;
+    }
+  }
+}
+.clock-scale {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 1px;
+  height: 240px;
+  background-color: $primary;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+  }
+  .star {
+    position: absolute;
+    top: 0;
+    transform: translate(-6px, -6px) scale(0.8);
+    &::before {
+      content: "\2726";
+      color: $success;
+    }
+    &-opposite {
+      position: absolute;
+      bottom: 0;
+      transform: translate(-6px, 6px) scale(0.8);
+      &::before {
+        content: "\2726";
+        color: $success;
+      }
+    }
+  }
+}
+.hour-scale {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 1px;
+  height: 240px;
+  font-size: 12px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 15px;
+    transform: translateY(-50%);
+    background-color: $success;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 15px;
+    transform: translateY(50%);
+    background-color: $success;
+  }
+  .inside-nums {
+    position: absolute;
+    top: 15px;
+    left: -2.5px;
+    color: white;
+    //transform: translate(-50%, 15px);
+    &-opposite {
+      position: absolute;
+      bottom: 15px;
+      left: -2.5px;
+      color: white;
+      //transform: translate(-50%, -15px);
+    }
+  }
+  .outside-nums {
+    position: absolute;
+    top: -25px;
+    left: -5px;
+    color: white;
+    //transform: translate(-50%, -25px);
+    &-opposite {
+      position: absolute;
+      bottom: -25px;
+      left: -5px;
+      color: white;
+      //transform: translate(-50%, 25px);
+    }
+  }
+}
+@for $i from 1 through 36 {
+  @if ($i%3==0) {
+    //如果在小時線和星星上就不顯示刻度
+    .clock-scale:nth-child(#{$i}) {
+      transform: rotate(#{$i * 5}deg);
+      &::before {
+        width: 0;
+        height: 0;
+      }
+      &:after {
+        width: 0;
+        height: 0;
+      }
+    }
+  } @else {
+    .clock-scale:nth-child(#{$i}) {
+      transform: rotate(#{$i * 5}deg); //分鐘刻度5度
+    }
+  }
+}
+
+@for $i from 37 through 42 {
+  .hour-scale:nth-child(#{$i}) {
+    transform: rotate(#{$i * 30}deg); //小時線轉30度
+    span {
+      transform: rotate(#{$i * -30}deg); //數字轉回來
+    }
+  }
+}
