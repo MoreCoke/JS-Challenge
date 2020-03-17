@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全台空氣指標</title>
+  <link rel="stylesheet" href="./stylesheet/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap&subset=chinese-traditional"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-4 d-flex flex-column justify-content-between mb-3">
+        <div class="w-100 h2 font-weight-bold">空氣品質指標(AQI)</div>
+        <select class="select-menu w-100" name="air" id="hi">
+          <option>請稍後，資料抓取中...</option>
+        </select>
+      </div>
+      <div class="col-md-8 mb-3">
+        <div class="row no-gutters list">
+          <div class="col-6 col-md">
+            <div class="bg-good">0~50</div>
+            <div>良好</div>
+          </div>
+          <div class="col-6 col-md">
+            <div class="bg-normal">51~100</div>
+            <div>普通</div>
+          </div>
+          <div class="col-6 col-md">
+            <div class="bg-sensitive">101~150</div>
+            <div>對敏感族群不健康</div>
+          </div>
+          <div class="col-6 col-md">
+            <div class="bg-unhealth">151~200</div>
+            <div>對所有族群不健康</div>
+          </div>
+          <div class="col-6 col-md">
+            <div class="bg-unhealth">201~300</div>
+            <div>非常不健康</div>
+          </div>
+          <div class="col-6 col-md">
+            <div class="bg-danger">301~400</div>
+            <div>危害</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="select-city mb-3">
+      <span class="title"></span>
+      <div class="divider"></div>
+      <div class="text-center">
+        <span class="time"></span>
+        <span>更新</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="d-flex flex-column district-detail">
+          <!-- <div class="aqi">
+            <div class="aqi-district">前金</div>
+            <div class="aqi-index bg-unhealth">156</div>
+          </div>
+          <ul class="aqi-data">
+            <li><b>臭氧</b> <span>O3 (ppb)</span> <b class="ml-auto">82</b></li>
+            <li><b>懸浮微粒</b> <span>PM10 (μg/m³)</span> <b class="ml-auto">82</b></li>
+            <li><b>細懸浮微粒</b> <span>PM2.5 (μg/m³)</span> <b class="ml-auto">82</b></li>
+            <li><b>一氧化碳</b> <span>CO (ppm)</span> <b class="ml-auto">82</b></li>
+            <li><b>二氧化硫</b> <span>SO2 (ppb)</span> <b class="ml-auto">82</b></li>
+            <li><b>二氧化氮</b> <span>NO2 (ppb)</span> <b class="ml-auto">82</b></li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row district-list">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container d-flex justify-content-between">
+      <span>資料來源：行政院環境保護署</span>
+      <span>Copyright © 2020 HexSchool. All rights reserved.</span>
+    </div>
+  </div>
+  <script src="./stylesheet/all.js"></script>
+</body>
+
+</html>

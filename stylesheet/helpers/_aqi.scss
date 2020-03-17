@@ -1,0 +1,125 @@
+$colors: (
+  good: #95f084,
+  normal: #ffe695,
+  sensitive: #ffaf6a,
+  unhealth: #ff5757,
+  bad: #9777ff,
+  danger: #ad1774
+);
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background: $color;
+  }
+}
+body {
+  background: #f0f0f0;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: bold;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.list {
+  border: 1.5px solid black;
+  .col-6 div {
+    height: 56px;
+    padding: 1rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid black;
+    box-sizing: border-box;
+  }
+}
+.select-menu {
+  height: 56px;
+  padding: 0 1rem;
+  border: 3px solid black;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.select-city {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .title{
+      text-align: left;
+    }
+  }
+  .title {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  .divider {
+    width: 75%;
+    border-bottom: 4px dotted black;
+    margin: 0 1rem;
+    display: none;
+    @include media-breakpoint-up(md){
+      display: block;
+    }
+  }
+}
+.aqi {
+  display: flex;
+  height: 97px;
+  &-district {
+    width: 55%;
+    border: 3px solid black;
+    font-size: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-index {
+    width: 45%;
+    border: 3px solid black;
+    border-left: none;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+  }
+  &-data {
+    border: 3px solid black;
+    border-top: none;
+    padding: 2rem;
+    list-style: none;
+    li {
+      border-bottom: 1px solid black;
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      b {
+        font-size: 1.5rem;
+      }
+      span {
+        font-weight: normal;
+        margin-left: 0.5rem;
+      }
+      &:first-child {
+        padding-top: 0;
+      }
+      &:nth-last-child(1) {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+.district-list .aqi:hover{
+  cursor: pointer;
+  box-shadow: 0 0 5px black;
+}
+.footer {
+  margin-top: auto;
+  background: black;
+  color: white;
+  padding: 0.5rem;
+}
