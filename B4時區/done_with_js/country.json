@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "city": "NEW YORK",
+      "timeZone": "America/New_York"
+    },
+    {
+      "city": "LONDON",
+      "timeZone": "Europe/London"
+    },
+    {
+      "city": "BANGKOK",
+      "timeZone": "Asia/Bangkok"
+    },
+    {
+      "city": "TAIWAN",
+      "timeZone": "Asia/Taipei"
+    },
+    {
+      "city": "SYDNEY",
+      "timeZone": "Australia/Sydney"
+    }
+  ]
+}
