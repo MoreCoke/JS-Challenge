@@ -14,7 +14,9 @@ function showData() {
                 var temp = function (element) {
                     var option = { timeZone: element.timeZone, ...setting };
                     var arr = new Date().toLocaleDateString('en-GB', option).split(" ");
-                    var currentDay = arr.slice(0, 3).splice(1, 0, " ").splice(3, 0, ".");//取arr中日期的值
+                    var currentDay = arr.slice(0, 3);//取 arr 中日期的部分
+                    currentDay.splice(1, 0, " "); //刪除空格
+                    currentDay.splice(3, 0, "."); //加入點點
                     var date = currentDay.join("").replace(/\,/g, "");
                     var time = arr.slice(3).join('');
                     str += `
