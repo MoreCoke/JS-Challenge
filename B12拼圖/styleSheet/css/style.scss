@@ -1,0 +1,305 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: "Noto Serif TC", serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  font-family: "Noto Serif TC", serif;
+}
+section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.puzzle {
+  display: inline-block;
+  &-move {
+    transform: translateX(-150px);
+    transition: transform 1.5s ease;
+  }
+  &-table {
+    margin: 2rem auto;
+    table-layout: fixed;
+    width: 540px;
+    &.shinning {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        bottom: 0;
+        right: 0;
+        display: inline-block;
+        width: 556px;
+        height: 556px;
+        z-index: -1;
+        border: 1px solid rgba(white, 0.5);
+        box-shadow: 0px 0px 15px white;
+        animation: blinker 2s ease;
+      }
+    }
+  }
+  &-zone {
+    border: 1px solid white;
+    width: 180px;
+    height: 180px;
+    position: relative;
+    &.hover {
+      background-color: rgba(white, 0.5);
+    }
+    img[data-puzzle="1"],
+    img[data-puzzle="3"],
+    img[data-puzzle="4"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    img[data-puzzle="2"],
+    img[data-puzzle="6"],
+    img[data-puzzle="8"] {
+      position: absolute;
+      top: 0;
+      left: -27px;
+    }
+    img[data-puzzle="5"],
+    img[data-puzzle="7"],
+    img[data-puzzle="9"] {
+      position: absolute;
+      top: -27px;
+      left: 0;
+    }
+  }
+}
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  padding: 47px 0;
+}
+.description {
+  display: inline-block;
+  vertical-align: top;
+  width: 350px;
+  height: 540px;
+  margin: 2rem 0 2rem 30px;
+  color: white;
+  text-align: left;
+  opacity: 0;
+  position: fixed; // 避免佔位卡到方格，造成方格左移
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  h3 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-top: 2rem;
+    line-height: 23px;
+  }
+  &-move {
+    opacity: 1;
+    transform: translateX(-150px);
+    transition: all ease 1s;
+  }
+  &-btn {
+    position: absolute;
+    bottom: 0;
+    vertical-align: bottom;
+    width: 100%;
+    height: 67px;
+    padding: 1rem 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+    background-color: white;
+    color: black;
+    border: none;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+}
+.img-blur {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-image: linear-gradient(rgba(black, 0.3)),
+    url(../img/img-bg-Qingming@2x.png);
+  background-position: 75% 0;
+  filter: blur(5px);
+  transform: scale(1.02);
+}
+.random-btn {
+  width: 350px;
+  height: 67px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  outline: none;
+  cursor: pointer;
+}
+img[data-puzzle] {
+  position: absolute;
+  z-index: 1000;
+  cursor: move;
+}
+.none {
+  display: none;
+}
+
+@keyframes blinker {
+  30% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+}
